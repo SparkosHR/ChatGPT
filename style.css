@@ -1,0 +1,135 @@
+/* Default styles for desktop view */
+body {
+  width: ;
+  height: 800px;
+  overflow: hidden;
+  background-color: rgba(68,70,84);
+  color: #fff;
+  margin: 0; /* remove default margins */
+  display: flex; /* enable flexbox layout */
+  align-items: center; /* center elements vertically */
+  justify-content: center; /* center elements horizontally */
+  background-repeat: no-repeat; /* make image not repeat */
+  background-position: center center; /* center image */
+  background-size: 90% auto; /* set width and height of image */
+}
+
+#txtMsg {
+  width: 750px;
+  height: 100px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+  outline: none;
+}
+
+#txtMsg img {
+  width: 55px;
+  height: 55px;
+}
+
+#txtOutput {
+  margin-top: 10px;
+  width: 750px;
+  height: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+  overflow-y: scroll;
+  white-space: pre-wrap;
+}
+
+#txtOutput img {
+  width: 250px;
+  height: auto;
+}
+
+#eEgg {
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Media query for screens smaller than 768px */
+@media only screen and (max-width: 768px) {
+  body {
+    width: ;
+    height: ;
+    display: flex;
+    background-color: rgba(68,70,84);
+    background-size: ; /* set background-size to cover for mobile view */
+  }
+}
+
+/* Mic */
+.container {
+  position: relative;
+  width: 40px;
+  height: 0px;
+}
+
+.mic-button {
+  position: absolute;
+  top: -60px;
+  right: -345px;
+  background-image: url('mic.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.mic-button.pulsate {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Covert to Speech Button */
+.speakSend {
+  position: absolute;
+  display: block;
+  width: 45px;
+  height: 45px;
+  top: -65px;
+  right: -345px;
+  background-image: url(thumb-125.png);
+  background-size: contain;
+}
+
+/* Position the pseudo-element over the original button */
+.audio {
+  position: relative;
+  display: none;
+  z-index: 1;
+  background-color: transparent;
+}

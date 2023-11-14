@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<head>
+    <title>ChatGPT</title>
+<script src="options.js"></script>
+<script src="external.js"></script>
+<script src="chatgpt.js"></script>
+<script src="chatgpt-turbo.js"></script>
+<script src="google-palm.js"></script> 
+<script src="aws-sdk-2.1304.0.min.js"></script>
+ <script>
+  auth();
+  // Adjust for Mobile User Agents
+  mobile_txtout();
+  mobile_txtmsd();
+</script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<center>
+<body onload="OnLoad()">
+
+ <script>
+   // Adjust for Mobile User Agents
+   useragent_adjust();
+ </script>
+
+    <div id="idContainer">
+        <div id="textToSynth">
+ <div id="txtOutput" contenteditable="true" rows="10" wrap="soft" placeholder="Output"></div>
+	
+        <div class="container">
+	<button class="speakSend" onClick="speakText(); document.getElementById('audioPlayback').setAttribute('autoplay', true);" id="speakSend" title="Speak This"></button>
+        </div>
+
+        <select id="selEngine" onchange="ChangeLang(this)">
+            <option value="standard">Standard</option>
+            <option value="neural">Neural</option>
+	    <option value="bark">Bark</option>
+        </select>
+        <select id="selVoice" onchange="ChangeLang(this)">
+            <option value="Salli">English</option>
+            <option value="Seoyeon">Korean</option>
+            <option value="Mia">Spanish</option>
+            <option value="Tatyana">Russian</option>
+        </select>
+
+	<input type="checkbox" id="autoSpeak">Auto Speak</input>
+	<p id="result"></p>
+	</div>
+
+	<audio id="audioPlayback" class="audio" controls>
+	<source id="audioSource" type="audio/mp3" src="">
+	</audio>
+
+<p>
+
+  <input type="file" id="imgInput" style="display:none;"> 
+ <div id="txtMsg" contenteditable="true" rows="5" placeholder="Input Text"></div> 
+    <script>
+      insertImage();
+    </script>  
+
+        <div>
+
+	<div class="container">
+	  <button onclick="startSpeechRecognition()" id="micButton" class="mic-button"></button>
+	</div>
+
+	<button type="button" onclick="sendData()" id="btnSend">Send</button>
+	    <select id="selModel" onchange="updateButton()">
+		<option value="gpt-3.5-turbo" title="Default">gpt-3.5-turbo</option>
+		<option value="gpt-3.5-turbo-16k" title="gpt-3.5-turbo-16k">gpt-3.5-turbo-16k</option>
+    </select>
+
+		<button  onclick="printMaster()">Print Output</button>
+
+	</div>
+
+<script>
+  // Capture CTRL + Enter Key Captures
+  shiftBreak();
+</script>
+
+<div id="idText"></div>
+</div>
+
+</body>
+<footer>
+  <img id="eEgg" alt="Image" style="display:none;">
+<!--  <button id="getUsageBtn" onclick="getOpenaiUsageNested()">Get OpenAI Usage</button> -->
+  <button id="clearMessagesBtn" onclick="clearMessages()">Clear Memory</button>
+  <pre id="usageData"></pre>
+<!--  <input type="file" id="imgInput" style="display:none;"> -->
+</footer>
+
+</center>
+</html>
